@@ -2,6 +2,7 @@ import { Link , useNavigate } from "react-router-dom";
 import { auth } from "../../firebase";
 
 
+
 export function Home(props){
     const navigate = useNavigate();
    
@@ -9,26 +10,17 @@ export function Home(props){
     navigate("/Login");
     return auth.signOut();
     
-    
     }
 
-
-    return(<div>
+    return(<div className="nav">
                 <div>
                     <div>
-                
-                        <h1><Link to="/login">Login</Link></h1>
-            
-                         <br />
-            
-                        <h1><Link to="/signup">Registrar</Link></h1>
-
-                        <br />
-
-                        <h1><Link to="/onAddProduct">Carts</Link></h1>
-                        
-
-           
+                        <nav>
+                            <li><a href="#"></a>Inicio</li>
+                            <li><a href="#ProductList">Productos</a></li>
+                            <li><a href="#Login">Logueate</a></li>
+                        </nav>
+                            
                         
                     </div>
                 </div>
@@ -37,4 +29,5 @@ export function Home(props){
             </div>
   );
 };
+
 

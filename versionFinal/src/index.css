@@ -27,6 +27,21 @@ img {
 	max-width: 50%;
 }
 
+nav {
+	max-width: 100%;
+	margin: 40px;
+	display: flex;
+	align-items: start;
+	text-decoration: none;
+	justify-content: space-between;
+	padding: 30px 0 40px 0;
+	background-color: #205375;
+	
+}
+nav li a {
+	text-decoration: none;
+	
+}
 /* Header */
 header {
 	display: flex;

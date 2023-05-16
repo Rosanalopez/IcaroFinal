@@ -38,6 +38,7 @@ export function Login(){
 
     };
     return(<div className={styles.container}>
+
         <div className={styles.innerBox}>
             <h1 className={styles.heading}>Login</h1>
             <InputControl label="Email"
@@ -45,18 +46,19 @@ export function Login(){
             setValues((prev) => ({ ...prev,email:event.target.value}))}
             placeholder="Ingrese su correo" 
             />
+
                 <InputControl label="Contraseña"
             onChange={(event) => 
             setValues((prev) => ({ ...prev,pass:event.target.value}))}
             placeholder="Ingrese su Contraseña" 
             />
-
+            
              <div className={styles.footer}>
                 <b className={styles.error}>{errorMsg}</b>
                 <button onClick={Iniciar} disabled={submitButtonDisabled}>Inicio Sesión</button> 
                 <p>
                    Crear Cuenta
-                    <span>
+                    <span className="bot">
                         <Link to="/signup">ir</Link>
 
                     </span>

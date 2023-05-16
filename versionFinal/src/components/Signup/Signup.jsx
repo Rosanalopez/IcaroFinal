@@ -9,18 +9,18 @@ import { InputControl } from "../InputControl/InputControl"
 
 export function Signup(){
     const navigate = useNavigate();
-    const [values, setvalues] = useState ({ name:"",email:"",pass:""});
+    const [values, setvalues] = useState ({ name:"",email:"",pass:"",direccion:"",contacto:""});
     const [errorMsg, setErrorMsg] = useState([]);
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
     const registro =()=>{
-        if(!values.name || !values.email || !values.pass ){
+        if(!values.name || !values.email || !values.pass || !values.direccion || !values.contacto ){
             setErrorMsg("Llene todos los campos")
             return;
         }
         setErrorMsg("")
         setSubmitButtonDisabled(true)
-        createUserWithEmailAndPassword(auth,values.email,values.pass)
+        createUserWithEmailAndPassword(auth,values.email,values.pass,values.direccion,values.contacto)
         .then(
             async (res)=>{
             setSubmitButtonDisabled(false);
@@ -38,8 +38,8 @@ export function Signup(){
     return(<div className={styles.container}>
         <div className={styles.innerBox}>
         <h1 className={styles.heading}>Registro</h1></div>
-        <InputControl label="Nombre"
-        placeholder="Ingrese un nombre"
+        <InputControl label="Nombre y apellido"
+        placeholder="Ingrese un nombre y apellido"
         onChange={(event)=> setvalues ((prev)=>({...prev,name:event.target.value}))}/>
         <InputControl label="Email"
         placeholder="Ingrese un correo"
@@ -47,6 +47,13 @@ export function Signup(){
         <InputControl label="Contraseña"
         placeholder="Ingrese una contraseña"
         onChange={(event)=> setvalues ((prev)=>({...prev,pass:event.target.value}))}/>
+        <InputControl label="Direccion"
+        placeholder="Ingrese su direccion"
+        onChange={(event)=> setvalues ((prev)=>({...prev,direccion:event.target.value}))}/>
+        <InputControl label="Contacto"
+        placeholder="Ingrese su contacto"
+        onChange={(event)=> setvalues ((prev)=>({...prev,contacto:event.target.value}))}/>
+        
         <div className={styles.footer}>
             <b className={styles.error}>{errorMsg}</b>
             <button onClick={registro} disabled={submitButtonDisabled}>
