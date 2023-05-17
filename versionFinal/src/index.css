@@ -159,7 +159,7 @@ header {
 }
 
 .item:hover {
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 10px 20px rgba(200, 99, 99, 0.2);
 }
 
 .item img {

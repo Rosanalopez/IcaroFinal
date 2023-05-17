@@ -1,14 +1,12 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+//import {Inicio} from"../components/Inicio";
 import { Login } from "../components/Login/Login";
 import { Home } from "../components/Home/Home";
 import { Signup } from "../components/Signup/Signup";
 import { ProductList } from "../components/Product/ProductList"
-import { Header } from "../components/Product/Header"
+import { Header } from "../components/Product/Header";
 import { Carrito } from "../components/Product/Carts"
 import { auth } from "..//firebase";
-
-
-
 import React, { useState, useEffect } from 'react';
 
 
@@ -29,11 +27,7 @@ export function MyRoutes() {
                 <Route exact path="/signup" element={<Signup />} />
                 <Route exact path="/ProductList" element={<ProductList />} />
                 <Route exact path="/Header" element={<Header />} />
-                <Route exact path="/Carts" element={<Carrito />} />
-                
-                
-
-                
+                <Route exact path="/Carts" element={<Carrito />} />  
                 
             </Routes>
         </Router>

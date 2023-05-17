@@ -11,3 +11,6 @@
 .bot{
 	background-color:red;
 }
+.container innerBox heading{
+	display: inline-flexbox;
+}

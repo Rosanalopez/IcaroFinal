@@ -9,18 +9,18 @@ import { InputControl } from "../InputControl/InputControl"
 
 export function Signup(){
     const navigate = useNavigate();
-    const [values, setvalues] = useState ({ name:"",email:"",pass:"",direccion:"",contacto:""});
+    const [values, setvalues] = useState ({ name:"",email:"",pass:""});
     const [errorMsg, setErrorMsg] = useState([]);
     const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
 
     const registro =()=>{
-        if(!values.name || !values.email || !values.pass || !values.direccion || !values.contacto ){
+        if(!values.name || !values.email || !values.pass  ){
             setErrorMsg("Llene todos los campos")
             return;
         }
         setErrorMsg("")
         setSubmitButtonDisabled(true)
-        createUserWithEmailAndPassword(auth,values.email,values.pass,values.direccion,values.contacto)
+        createUserWithEmailAndPassword(auth,values.email,values.pass)
         .then(
             async (res)=>{
             setSubmitButtonDisabled(false);
@@ -47,12 +47,7 @@ export function Signup(){
         <InputControl label="Contraseña"
         placeholder="Ingrese una contraseña"
         onChange={(event)=> setvalues ((prev)=>({...prev,pass:event.target.value}))}/>
-        <InputControl label="Direccion"
-        placeholder="Ingrese su direccion"
-        onChange={(event)=> setvalues ((prev)=>({...prev,direccion:event.target.value}))}/>
-        <InputControl label="Contacto"
-        placeholder="Ingrese su contacto"
-        onChange={(event)=> setvalues ((prev)=>({...prev,contacto:event.target.value}))}/>
+       
         
         <div className={styles.footer}>
             <b className={styles.error}>{errorMsg}</b>
